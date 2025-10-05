@@ -15,7 +15,7 @@ log_stats() {
     git log --author="$1" --pretty=tformat: --numstat | \
     awk -v author="$1" -v commits="$2" 'BEGIN {
         RED = "\033[31m"
-        GREEN = "\033[32m"
+        GREEN = "\033[92m"
         RESET = "\033[0m"
     } {
         adds += $1; subs += $2

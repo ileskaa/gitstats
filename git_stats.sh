@@ -13,12 +13,22 @@ log_commits() {
 
 log_stats() {
     git log --author="$1" --pretty=tformat: --numstat | \
-    awk -v author="$1" -v commits="$2" '{
+    awk -v author="$1" -v commits="$2" 'BEGIN {
+        RED = "\033[31m"
+        GREEN = "\033[32m"
+        RESET = "\033[0m"
+    } {
         adds += $1; subs += $2
     } END {
         if (adds || subs) {
-            print author
-            printf "Commits: %'"'"'d | Lines: ++%'"'"'d; --%'"'"'d\n", commits, adds, subs
+            print GREEN author RESET
+            printf "Commits: %'"'"'d | Lines: ", commits
+            printf GREEN
+            printf "++%'"'"'d", adds
+            printf RESET
+            printf "; "
+            printf RED
+            printf "--%'"'"'d\n", subs
         }
     }'
 }

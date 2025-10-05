@@ -21,7 +21,7 @@ log_stats() {
         adds += $1; subs += $2
     } END {
         if (adds || subs) {
-            print GREEN author RESET
+            print author
             printf "Commits: %'"'"'d | Lines: ", commits
             printf GREEN
             printf "++%'"'"'d", adds
@@ -29,6 +29,7 @@ log_stats() {
             printf "; "
             printf RED
             printf "--%'"'"'d\n", subs
+            printf RESET
         }
     }'
 }

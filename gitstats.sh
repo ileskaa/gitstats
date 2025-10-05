@@ -16,7 +16,7 @@ log_stats() {
     awk -v author="$1" -v commits="$2" '{
         adds += $1; subs += $2
     } END {
-        if (adds && subs) {
+        if (adds || subs) {
             print author
             printf "Commits: %'"'"'d | Lines: ++%'"'"'d; --%'"'"'d\n", commits, adds, subs
         }

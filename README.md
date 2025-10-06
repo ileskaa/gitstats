@@ -7,7 +7,7 @@ View commits, line additions and line deletions for your project.
 ```bash
 # After cloning the repository
 cd gitstats
-make install 
+bash ./install.sh 
 ```
 
 To uninstall the tool, run `make uninstall`.
@@ -15,6 +15,6 @@ To uninstall the tool, run `make uninstall`.
 ## Usage
 
 ```bash
-cd your-project-repository
+cd your/project/repository/
 gitstats
 ```

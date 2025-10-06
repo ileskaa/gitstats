@@ -10,7 +10,7 @@ cd gitstats
 bash ./install.sh 
 ```
 
-To uninstall the tool, run `make uninstall`.
+To uninstall the tool, run `sh ./uninstall.sh`.
 
 ## Usage
 

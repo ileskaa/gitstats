@@ -1,6 +1,6 @@
 # gitstats
 
-View commits, line additions and line deletions for your project.
+View commits, line additions and line deletions for your project. Merge commits are excluded.
 
 ## Installation (UNIX)
 

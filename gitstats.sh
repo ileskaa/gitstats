@@ -3,11 +3,11 @@
 log_commits() {
     if [ "$1" ]; then
         # git shortlog summarizes git log output. Each commit is grouped by author.
-        # --summary suppresses commit descriptions and provides a commit count summary instead.
-        # --numbered sorts the ouptut according to the number of commits.
+	# --summary (-s) suppresses commit descriptions and provides a commit count summary instead.
+	# --numbered (-n) sorts the ouptut according to the number of commits.
         git shortlog -s -n --author="$1"
     else
-        git shortlog -s -n
+        git shortlog -s -n --no-merges
     fi
 }
 

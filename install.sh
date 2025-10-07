@@ -6,19 +6,19 @@ if [[ ":$PATH:" == *":$HOME/.local/bin:"* ]];then
     echo "Directory ~/.local/bin/ is in PATH.";
 else
     mkdir -p "$HOME/.local/bin/"
-
+    # shellcheck disable=SC2016
     path_export='export PATH=$HOME/.local/bin:$PATH'
 
     if [[ "$SHELL" == */zsh ]];then
         echo '' >> "$HOME/.zshrc"
         echo "$path_export" >> "$HOME/.zshrc"
         echo ".zshrc was updated."
-        echo -e 'Run \033[32msource ~/.zshrc\033[0m to update your path.'
+        zsh -c "source $HOME/.zshrc"
     elif [[ "$SHELL" == */bash ]];then
         echo '' >> "$HOME/.bashrc"
         echo "$path_export" >> "$HOME/.bashrc"
-        source "$HOME/.bashrc"
         echo ".bashrc was updated."
+        bash -c "source $HOME/.bashrc"
     fi
 fi
 

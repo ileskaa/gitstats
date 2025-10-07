@@ -7,13 +7,17 @@ if [[ ":$PATH:" == *":$HOME/.local/bin:"* ]];then
 else
     mkdir -p "$HOME/.local/bin/"
 
-    path_export="export PATH=$HOME/.local/bin/:$PATH"
+    path_export='export PATH=$HOME/.local/bin/:$PATH'
 
-    if [ -n "$ZSH_VERSION" ];then
-        echo "$path_export" > "$HOME/.zshrc"
+    if [[ "$SHELL" == */zsh ]];then
+        echo '' >> "$HOME/.zshrc"
+        echo "$path_export" >> "$HOME/.zshrc"
         echo ".zshrc was updated."
-    elif [ -n "$BASH_VERSION" ];then
-        echo "$path_export" > "$HOME/.bashrc"
+        echo -e 'Run \033[32msource ~/.zshrc\033[0m to update your path.'
+    elif [[ "$SHELL" == */bash ]];then
+        echo '' >> "$HOME/.bashrc"
+        echo "$path_export" >> "$HOME/.bashrc"
+        source "$HOME/.bashrc"
         echo ".bashrc was updated."
     fi
 fi

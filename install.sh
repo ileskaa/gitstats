@@ -7,7 +7,7 @@ if [[ ":$PATH:" == *":$HOME/.local/bin:"* ]];then
 else
     mkdir -p "$HOME/.local/bin/"
 
-    path_export='export PATH=$HOME/.local/bin/:$PATH'
+    path_export='export PATH=$HOME/.local/bin:$PATH'
 
     if [[ "$SHELL" == */zsh ]];then
         echo '' >> "$HOME/.zshrc"

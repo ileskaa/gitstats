@@ -13,13 +13,12 @@ else
         echo '' >> "$HOME/.zshrc"
         echo "$path_export" >> "$HOME/.zshrc"
         echo ".zshrc was updated."
-        zsh -c "source $HOME/.zshrc"
     elif [[ "$SHELL" == */bash ]];then
         echo '' >> "$HOME/.bashrc"
         echo "$path_export" >> "$HOME/.bashrc"
         echo ".bashrc was updated."
-        bash -c "source $HOME/.bashrc"
     fi
+    export "PATH=$HOME/.local/bin:$PATH"
 fi
 
 cp gitstats.sh "$HOME"/.local/bin/gitstats

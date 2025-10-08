@@ -7,7 +7,7 @@ View commits, line additions and line deletions for your project. Merge commits 
 ```bash
 # After cloning the repository
 cd gitstats
-bash ./install.sh 
+. ./install.sh 
 ```
 
 To uninstall the tool, run `sh ./uninstall.sh`.
